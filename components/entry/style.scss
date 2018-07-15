@@ -1,0 +1,117 @@
+@import '~/assets/scss/vars.scss';
+.page-entry-container {
+  padding-top: 120px;
+  .form-wrapper {
+    max-width: 480px;
+    margin: auto;
+    > .title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: $primaryTextColor;
+    }
+    .form-control {
+      margin-bottom: 20px;
+      position: relative;
+      height: 40px;
+      input {
+        width: 100%;
+        height: 100%;
+        padding-left: 36px;
+        outline: none;
+        color: $primaryTextColor;
+        font-size: 14px;
+        border: 1px solid $level1BorderColor;
+        &::placeholder {
+          color: $placeholderTextColor;
+        }
+      }
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 15px;
+        &.icon-user {
+          background-image: url(~/assets/img/user.png);
+        }
+        &.icon-pwd {
+          background-image: url(~/assets/img/ps.png);
+        }
+        &.icon-tel {
+          background-image: url(~/assets/img/tel.png);
+        }
+      }
+      // 验证码
+      &.validcode {
+        .btn-sendcode {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 160px;
+          height: 100%;
+          border: none;
+          outline: none;
+          color: $primaryTextColor;
+          background-color: $level3BorderColor;
+          cursor: pointer;
+          &:not(:disabled):hover {
+            background-color: $level1BorderColor;
+          }
+          &:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+          }
+        }
+        input {
+          padding-right: 172px;
+        }
+      }
+      &.captcha-box {
+        .captcha {
+          position: absolute;
+          top: 0;
+          right: 0;
+          cursor: pointer;
+        }
+        input {
+          padding-right: 132px;
+        }
+      }
+    }
+    .float-layout {
+      font-size: 14px;
+      color: $primaryTextColor;
+      margin-bottom: 20px;
+      .leftbox {
+        float: left;
+      }
+      .rightbox {
+        float: right;
+      }
+      [type="checkbox"] {
+        width: 17px;
+        height: 17px;
+        vertical-align: middle;
+        margin-right: 3px;
+      }
+      .link {
+        color: $primaryTextColor;
+        + .link {
+          margin-left: 12px;
+        }
+        &.forget {
+          color: $primaryColor;
+        }
+        &.register {
+          color: $dangerColor;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import 'vars.scss';
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  min-width: 68px;
+  height: 36px;
+  line-height: 36px;
+  background-color: $primaryColor;
+  letter-spacing: .06em;
+  padding: 0 12px;
+  &.block {
+    width: 100%;
+  }
+  &.big {
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+  }
+  &:not(:disabled):hover {
+    background-color: $primaryActiveColor;
+  }
+  &.warning {
+    background-color: $warningColor;
+    &:not(:disabled):hover {
+      background-color: $warningActiveColor;
+    }
+  }
+  &.info {
+    background-color: $level3BorderColor;
+    color: $primaryTextColor;
+    &:not(:disabled):hover {
+      background-color: $level1BorderColor;
+    }
+  }
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}
+a.button {
+  color: #fff;
+}

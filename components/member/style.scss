@@ -1,0 +1,87 @@
+@import '~/assets/scss/vars.scss';
+.com-member-list {
+  margin: 0 -12px;
+  min-width: 480px;
+  padding: 40px 12px;
+  .titlebar {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    .title {
+      font-size: 16px;
+      color: $normalTextColor;
+      vertical-align: -webkit-baseline-middle;
+    }
+    .link {
+      float: right;
+    }
+  }
+  .filterbar {
+    height: 36px;
+    margin-bottom: 12px;
+    * {
+      font-size: 15px;
+    }
+    select, input {
+      color: $normalTextColor;
+      padding: 0 12px;
+      border: 1px solid $level3BorderColor;
+    }
+    select, .searchbox {
+      float: left;
+    }
+    select {
+      height: 100%;
+      margin-right: 24px;
+    }
+    .searchbox {
+      height: 100%;
+      input {
+        height: 100%;
+        margin-right: 12px;
+        float: left;
+        &::placeholder {
+          color: $placeholderTextColor;
+        }
+      }
+    }
+  }
+  .table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    th, td {
+      padding: 12px 8px;
+      font-size: 14px;
+      text-align: center;
+      color: $normalTextColor;
+      border: 1px solid $level3BorderColor;
+    }
+    td {
+      min-width: 120px;
+      .fgline {
+        margin: 0 8px;
+        color: $level1BorderColor;
+      }
+      .link {
+        font-size: 13px;
+        color: $primaryColor;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &.page-member-trade-list {
+    min-width: 768px;
+    table {
+      td {
+        .link, .arrow {
+          color: $warningColor;
+          &.is-done {
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+  }
+}

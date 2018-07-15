@@ -1,0 +1,296 @@
+@import '~/assets/scss/vars.scss';
+.com-member-edit {
+  padding: 28px 0 48px;
+  .form-container {
+    .com-member-form-item {
+      .form-item__box  {
+        button {
+          height: 32px;
+          border: none;
+          cursor: pointer;
+          vertical-align: middle;
+          font-size: 14px;
+          margin: 6px;
+        }
+        .list {
+          &.applicant-list {
+            margin-right: 160px;
+          }
+        }
+        .btn-add {
+          float: right;
+          width: 148px;
+          color: #fff;
+          background-color: $primaryColor;
+        }
+        .help {
+          text-align: center;
+          margin-top: 16px;
+          padding: 8px 0;
+          color: $dangerColor;
+        }
+        .total-amount {
+          line-height: 48px;
+          padding: 0 16px;
+          font-size: 15px;
+          color: $normalTextColor;
+          .label {
+            color: $primaryColor;
+          }
+          strong {
+            color: $dangerColor;
+            margin-right: 3px;
+          }
+        }
+        &.cert {
+          padding: 12px;
+          .float-item {
+            float: left;
+            width: 50%;
+            text-align: center;
+            padding: 0 12px;
+            &.demo {
+              padding-top: 6px;
+              background-color: $level3BorderColor;
+              .hint {
+                font-size: 13px;
+                padding: 6px 0;
+                color: $normalTextColor;
+                text-align: left;
+              }
+            }
+            [type="file"] {
+              display: none;
+            }
+            .image {
+              width: 200px;
+              height: 200px;
+              margin: auto;
+              overflow: hidden;
+              background: $level3BorderColor;
+              display: flex;
+              align-items: center;
+              img {
+                width: 100%;
+                max-height: 100%;
+              }
+            }
+            .btn-upload {
+              padding: 0 12px;
+              height: 36px;
+              color: #fff;
+              background-color: $successColor;
+              &:hover {
+                background-color: $successActiveColor;
+              }
+            }
+            .hint {
+              padding-bottom: 6px;
+              font-size: 12px;
+              color: $secondaryTextColor;
+            }
+          }
+        }
+      }
+    }
+    // 行内表单
+    .inline-form {
+      max-width: 800px;
+      padding: 12px;
+      margin: auto;
+      .inline-form-item {
+        + .inline-form-item {
+          margin-top: 16px;
+        }
+        > .label, > .content .text {
+          line-height: 36px;
+          font-size: 15px;
+          color: $normalTextColor;
+        }
+        > .label {
+          float: left;
+          width: 160px;
+          padding-right: 12px;
+          text-align: right;
+        }
+        > .content {
+          margin-left: 160px;
+          input, select {
+            width: 100%;
+            max-width: 360px;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 12px;
+            font-size: 15px;
+            color: $normalTextColor;
+            border: 1px solid $level3BorderColor;
+            + .inline-hint {
+              margin-left: 12px;
+            }
+          }
+          select.area {
+            max-width: 120px;
+            font-size: 13px;
+            + select.area {
+              border-left: none;
+            }
+          }
+          .inline-hint {
+            display: inline-block;
+            max-width: 320px;
+            font-size: 12px;
+            color: $normalTextColor;
+            padding: 6px 0;
+            vertical-align: middle;
+          }
+          .uploader {
+            max-width: 480px;
+            text-align: center;
+            .image {
+              width: 160px;
+              height: 160px;
+              margin: auto;
+              background: $level3BorderColor no-repeat center center;
+              background-size: contain;
+            }
+            [type="file"] {
+              display: none;
+            }
+            .btn-upload {
+              padding: 0 12px;
+              height: 36px;
+              color: #fff;
+              background-color: $successColor;
+              &:hover {
+                background-color: $successActiveColor;
+              }
+            }
+          }
+          .link {
+            font-size: 15px;
+            color: $primaryColor;
+            margin-left: 12px;
+            padding: 6px 0;
+            &:hover {
+              text-decoration: underline;
+              color: $primaryActiveColor;
+            }
+          }
+          .hint {
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: left;
+            color: $secondaryTextColor;
+          }
+          .add-category {
+            margin-bottom: 16px;
+            .btn-add-to {
+              padding: 0 12px;
+              height: 28px;
+              color: #fff;
+              background-color: $primaryColor;
+              &:hover {
+                background-color: $primaryActiveColor;
+              }
+            }
+          }
+        }
+        .required-tag {
+          color: $dangerColor;
+        }
+      }
+    }
+    .submit-wrapper {
+      text-align: center;
+      .btn-submit {
+        min-width: 68px;
+        padding: 0 12px;
+        height: 36px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        background-color: $warningColor;
+        &:hover {
+          background-color: $warningActiveColor;
+        }
+      }
+    }
+  }
+  &.page-member-applicant-edit {
+    min-width: 480px;
+    .form-container {
+      .inline-form {
+        max-width: 100%;
+        .inline-form-item {
+          > .label {
+            width: 200px;
+          }
+          > .content {
+            margin-left: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.add-applicant-dialog.dialog {
+  .com-member-form-item {
+    .form-item__box {
+      &, input {
+        font-size: 14px;
+      }
+      .radio-group {
+        padding: 8px 12px;
+        .radio-block {
+          line-height: 2;
+          display: flex;
+          align-items: center;
+          input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            vertical-align: middle;
+          }
+        }
+      }
+      &.inputbox {
+        border: none;
+        .input {
+          width: 100%;
+          height: 36px;
+          padding: 0 12px;
+          color: $primaryTextColor;
+          border: 1px solid $level3BorderColor;
+        }
+      }
+    }
+  }
+}
+
+.add-custom-class-dialog.dialog {
+  .class-list {
+    height: 300px;
+    overflow: auto;
+    li {
+      float: left;
+      margin-bottom: 12px;
+      margin-right: 12px;
+    }
+  }
+}
+
+@media (max-width:540px) {
+  .page-member-applicant-edit {
+    .form-container {
+      .com-member-form-item {
+        > .form-item__box.cert {
+          .float-item {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
