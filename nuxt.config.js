@@ -14,7 +14,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'http://cdn.bootcss.com/strophe.js/1.2.8/strophe.min.js' }
+      { src: 'https://cdn.bootcss.com/strophe.js/1.2.8/strophe.min.js' }
     ]
   },
   /*
