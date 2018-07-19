@@ -1,65 +1,43 @@
 <template>
-<div class="page-entry-container page-login">
-  <div class="form-wrapper">
-    <h2 class="title">商标之家会员登录</h2>
-    <div class="form-control">
-      <i class="icon icon-user"></i>
-      <input type="text" placeholder="输入用户名/手机号" v-model.trim="postData.mobile">
+<div class="com-container page-login">
+  <h3 class="title">sign in</h3>
+  <div class="form-container">
+    <input class="input" placeholder="USERNAME" v-model.trim="userName">
+    <input class="input" type="password" placeholder="PASSWORD" v-model.trim="password">
+    <div class="forget">
+      <router-link to="/entry/find-pwd" replace>Forgot Password?</router-link>
     </div>
-    <div class="form-control">
-      <i class="icon icon-pwd"></i>
-      <input type="password" placeholder="输入密码" v-model.trim="postData.password">
-    </div>
-    <div class="form-control captcha-box">
-      <input type="text" placeholder="输入右图计算结果" v-model.trim="postData.captcha" @keyup.enter="onSubmit">
-      <img class="captcha" ref="captcha" src="/api/captcha" @click="onRefreshCaptcha">
-    </div>
-    <div class="clearfix float-layout">
-      <div class="rightbox">
-        <router-link class="link forget" to="/entry/forget">忘记密码？</router-link>
-        <router-link class="link register" to="/entry/register">立即免费注册</router-link>
-      </div>
-    </div>
-    <button class="button block big" :disabled="disabled" @click="onSubmit">登录</button>
+    <router-link class="link-signup" to="/entry/register" replace>New to Circcus? Sign Up</router-link>
+    <button class="btn-submit" @click="submit" :disabled="disabled">let's go</button>
   </div>
-  <com-loading v-if="loading"></com-loading>
 </div>
 </template>
 <script>
 export default {
   data() {
-    return {
-      postData: {
-        mobile: '',
-        password: '',
-        captcha: ''
-      },
-      loading: false
-    }
+    return { userName: '', password: '' }
   },
   computed: {
     disabled() {
-      return !(this.postData.mobile && this.postData.password && this.postData.captcha)
+      return !(this.userName && this.password)
     }
   },
   methods: {
-    onSubmit() {
-      if (this.disabled) return
-      let { to } = this.$route.query
-      this.loading = true
-      this.$store.dispatch('login', this.postData).then(() => {
-        this.loading = false
-        location.replace(to ? to : '/')
+    submit() {
+      const $loading = this.$loading({ target: this.$el })
+      this.$store.dispatch('login', {
+        userName: this.userName,
+        password: this.password
+      }).then(data => {
+        $loading.close()
+        this.$notify.success({ title: 'Notification', message: data.info })
+        this.$router.replace('/index/5')
       }).catch(err => {
-        this.loading = false
-        alert(err.message)
-        this.onRefreshCaptcha()
+        $loading.close()
+        this.$message.error(err.message)
+        console.log('error')
       })
-    },
-    onRefreshCaptcha() {
-      this.$refs.captcha.src = `/api/captcha?t=${Date.now()}`
     }
   }
 }
 </script>
-<style lang="scss" src="~/components/entry/style.scss"></style>

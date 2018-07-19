@@ -1,0 +1,163 @@
+// 引入element-ui 样式
+$--color-primary: #4183d7;
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 13px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  outline: none;
+  border: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+// 下拉菜单
+.el-dropdown {
+  cursor: pointer;
+}
+
+// 复选框
+.el-checkbox {
+  .el-checkbox__label {
+    display: none;
+  }
+  .el-checkbox__inner {
+    width: 20px;
+    height: 20px;
+    &:after {
+      width: 5px;
+      height: 12px;
+      left: 6px;
+      top: 0;
+    }
+  }
+}
+
+// 对话框
+.el-dialog__body {
+  padding: 20px;
+}
+
+// 时间选择器面板
+.el-time-panel {
+  .el-time-spinner {
+    .el-scrollbar__wrap {
+      box-sizing: content-box;
+    }
+  }
+}
+
+// 列表相关页面路由动画
+.list-view-enter, .list-view-leave-active {
+  opacity: 0;
+  transform: translateY(-24px);
+}
+.list-view-enter-active {
+  transition: all .8s ease;
+}
+
+// 编辑器和富文本样式
+.content,
+.editor {
+  word-break: break-all;
+  font-size: 15px;
+  overflow-x: hidden;
+  ul,
+  ol {
+    margin: 1em 0;
+    padding-left: 40px;
+  }
+  ol li {
+    list-style: decimal;
+  }
+  ul li {
+    list-style: disc;
+  }
+}
+
+.content {
+  table {
+    width: 100% !important;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 3px 0;
+  }
+}
+
+// 通用对话框用户列表样式
+.common-dialog-user-list {
+  min-height: 240px;
+  li {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e6e6e6;
+    .middle {
+      flex: 1;
+      margin-left: 12px;
+      h3, h4 {
+        line-height: 1.5;
+      }
+      .username {
+        font-size: 14px;
+        font-weight: bold;
+        color: #363636;
+      }
+      .school {
+        font-size: 12px;
+        color: #6f6f6f;
+      }
+    }
+  }
+}

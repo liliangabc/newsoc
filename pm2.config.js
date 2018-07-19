@@ -1,14 +1,16 @@
 module.exports = {
   "apps": [
     {
-      "name": "nuxt-biaobiao",
+      "name": "nuxt-circcus",
       "max_memory_restart": "512M",
       "script": "./build/main.js",
       "env": {
-        "PORT": "5000",
+        "PORT": "3000",
         "NODE_ENV": "production",
-        "REMOTEURL": "https://iapi.tmzhijia.com:8080"
-        // "REMOTEURL": "http://localhost:8080"
+        // "HOST": "www.circcus.com",
+        // "HOST": "192.168.0.200",
+        "HOST": "47.104.27.50",
+        "APIURL": "http://i.circcus.com/api/student"
       }
     }
   ]

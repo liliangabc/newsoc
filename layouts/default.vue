@@ -1,48 +1,40 @@
 <template>
-<div class="com-layout-detault">
-  <com-header></com-header>
-  <div class="page-main-container" ref="body">
+<div class="com-main-layout">
+  <com-main-header></com-main-header>
+  <div class="slot-container">
     <nuxt/>
   </div>
-  <com-footer ref="com-footer" :class="{fixed}"></com-footer>
-  <com-servicebar></com-servicebar>
+  <com-pic-preview></com-pic-preview>
+  <com-menu-actions></com-menu-actions>
 </div>
 </template>
 <script>
-import ComHeader from '~/components/common/header'
-import ComFooter from '~/components/common/footer'
-import ComServicebar from '~/components/common/servicebar'
+import ComMainHeader from '~/components/common/main-header'
+import ComPicPreview from '~/components/common/pic-preview'
+import ComMenuActions from '~/components/card/menu-actions'
 export default {
-  components: {
-    ComHeader, ComFooter, ComServicebar
-  },
-  data() {
-    return {
-      fixed: false
-    }
-  },
-  methods: {
-    winResize() {
-      let contentHeight = this.$refs.body.offsetHeight
-      let winHeight = window.innerHeight
-      let footerHeight = this.$refs['com-footer'].$el.offsetHeight
-      this.fixed = contentHeight + footerHeight < winHeight
+  components: { ComMainHeader, ComPicPreview, ComMenuActions },
+  watch: {
+    $route(newVal) {
+      this.$store.commit('actions/closeAll')
     }
   },
   mounted() {
-    this.winResize()
-    window.addEventListener('resize', this.winResize)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.winResize)
+    this.$store.dispatch('im/login')
   }
 }
 </script>
 <style lang="scss">
-@import '~/assets/scss/vars.scss';
-.page-main-container {
-  max-width: $maxWidth;
-  margin: auto;
-  padding: 50px 12px 100px;
+@import '~/assets/scss/sizes.scss';
+.com-main-layout {
+  min-width: $pageMinWidth;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+  padding-top: $pageHeaderHeight;
+  > .slot-container {
+    width: $pageMinWidth;
+    margin: auto;
+    padding: 0 16px;
+  }
 }
 </style>

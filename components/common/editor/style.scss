@@ -1,0 +1,120 @@
+@import '~/assets/scss/colors.scss';
+.com-editor {
+  input[type=file] {
+    display: none;
+  }
+  .editor-wrapper, .textedit {
+    padding: 5px;
+    font-size: 14px;
+    color: #6f6f6f;
+    border-radius: 4px;
+    border: 1px solid $boxBorderColor;
+    margin-bottom: 5px;
+  }
+  .editor-wrapper {
+    position: relative;
+    overflow-y: auto;
+    border-radius: 4px;
+    .placeholder, .editor {
+      line-height: 20px;
+    }
+    .placeholder {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      color: #aaa;
+      pointer-events: none;
+    }
+    .editor {
+      outline: none;
+      img {
+        width: calc(100% - 20px);
+        height: auto;
+      }
+    }
+  }
+  .textedit {
+    width: 100%;
+    line-height: 20px;
+    resize: none;
+    overflow: hidden;
+  }
+  .toolbar {
+    height: 32px;
+    position: relative;
+    .btn-group {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      button.icon-btn {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        background: no-repeat center center/auto 14px;
+        &.btn-picture {
+          background-image: url(icons/picture.png);
+        }
+        &.btn-attach {
+          background-size: 13px;
+          background-image: url(icons/attachment.png);
+        }
+        &.btn-bold {
+          background-image: url(icons/bold.png);
+          &.active {
+            background-image: url(icons/bold_active.png);
+          }
+        }
+        &.btn-italic {
+          background-image: url(icons/italic.png);
+          &.active {
+            background-image: url(icons/italic_active.png);
+          }
+        }
+        &.btn-ol {
+          background-size: 15px;
+          background-image: url(icons/ol.png);
+          &.active {
+            background-image: url(icons/ol_active.png);
+          }
+        }
+        &.btn-ul {
+          background-image: url(icons/ul.png);
+          &.active {
+            background-image: url(icons/ul_active.png);
+          }
+        }
+        .badge {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          border: 1px solid #fff;
+          background-color: #f56c6c;
+        }
+      }
+      .spring {
+        flex: 1;
+        margin: 0 8px;
+      }
+      .el-button {
+        min-width: 70px;
+        border-radius: 0;
+      }
+    }
+    .overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.62);
+    }
+  }
+  &.isGetFocus {
+    .toolbar .overlay {
+      display: none;
+    }
+  }
+}

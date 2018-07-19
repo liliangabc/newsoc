@@ -1,43 +1,84 @@
-/**
- * 通用工具模块
- */
+import axios from 'axios'
+import moment from 'moment'
+import validator from 'email-validator'
 
-//  手机正则表达式
-export const regPhone = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/
+const uploadURL = 'http://up-z1.qiniu.com'
+// const uploadURL = 'http://up-na0.qiniu.com'
 
-// 是否是手机号码
-export const isPhone = num => regPhone.test(num)
-
-// 替换查询参数
-export function replaceQuery(route, attr) {
-  let { query } = route, obj = {}
-  for (let key in query) obj[key] = query[key]
-  for (let key in attr) obj[key] = attr[key]
-  let qStr = Object.keys(obj).map(key => `${key}=${obj[key]}`).join('&')
-  return `${route.path}?${qStr}`
+// 文件上传
+export function upload({ file, token }) {
+  let formData = new FormData()
+  formData.append('token', token.uploadToken)
+  formData.append('key', token.key)
+  formData.append('file', file)
+  return new Promise((resolve, reject) => {
+    axios.post(uploadURL, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    }).then(res => resolve(res.data)).catch(reject)
+  })
 }
 
-// 序列化查询参数
-export function serializeQuery(o = {}) {
-  let arr = Object.keys(o).filter(_ => o[_] !== undefined).map(_ => `${_}=${o[_]}`)
-  return arr.length ? `?${arr.join('&')}` : ''
+// 验证邮箱
+export function isEmail(str) {
+  return validator.validate(str)
 }
 
-// 验证图片文件
-export function validPicFile({ file, maxSize }) {
-  let { type, size } = file, maxToBSize = maxSize * 1024
-  if (type.indexOf('image') !== 0) {
-    return {
-      ok: false,
-      msg: '请选择图片文件！'
-    }
-  } else if (maxSize && size > maxToBSize) {
-    return {
-      ok: false,
-      msg: `请选择小于${maxSize}kb的文件！`
-    }
+// 验证学校邮箱
+export function isEduEmail(str) {
+  return isEmail(str) && str.endsWith('edu')
+}
+
+// 帖子类型判断
+export function isMarket(type) {
+  return type == '2'
+}
+
+export function isEvent(type) {
+  return type == '1'
+}
+
+export function isClass(type) {
+  return type == '3'
+}
+
+export function isMeetup(type) {
+  return type == '4'
+}
+
+export function isMoment(type) {
+  return type == '5'
+}
+
+export function isUser(type) {
+  return type == '7'
+}
+
+// 计算元素在页面中的偏移位置
+export function getOffset(el) {
+  let oTop = el.offsetTop
+  let oLeft = el.offsetLeft
+  let oParent = el.offsetParent
+  while(oParent) {
+    oTop += oParent.offsetTop
+    oLeft += oParent.offsetLeft
+    oParent = oParent.offsetParent
   }
-  return {
-    ok: true
+  return { top: oTop, left: oLeft }
+}
+
+// 判断当前页是否是帖子详情页面
+export function isPostsDetail(route) {
+  return route.name == 'posts-type'
+}
+
+// 时间格式转换
+export const dateUtil = {
+  // 转化为JS标准时间格式
+  toJSTime(val) {
+    return moment(val).format('MM/DD/YYYY hh:mm')
+  },
+  // 转化为帖子所用时间格式
+  toPostsTime(val) {
+    return moment(val).format('MM/DD/YYYY hh:mm A')
   }
 }

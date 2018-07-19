@@ -3,20 +3,19 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _1185e5b4 = () => import('..\\pages\\trade-detail.vue' /* webpackChunkName: "pages_trade-detail" */).then(m => m.default || m)
-const _f3829344 = () => import('..\\pages\\query.vue' /* webpackChunkName: "pages_query" */).then(m => m.default || m)
-const _70f666c1 = () => import('..\\pages\\member\\wxbuy.vue' /* webpackChunkName: "pages_member_wxbuy" */).then(m => m.default || m)
-const _7651b82e = () => import('..\\pages\\member\\applicant-edit.vue' /* webpackChunkName: "pages_member_applicant-edit" */).then(m => m.default || m)
-const _94e20706 = () => import('..\\pages\\member\\applicant-list.vue' /* webpackChunkName: "pages_member_applicant-list" */).then(m => m.default || m)
-const _03e734aa = () => import('..\\pages\\entry\\register.vue' /* webpackChunkName: "pages_entry_register" */).then(m => m.default || m)
-const _58adf34a = () => import('..\\pages\\member\\trade-list.vue' /* webpackChunkName: "pages_member_trade-list" */).then(m => m.default || m)
-const _6807c016 = () => import('..\\pages\\entry\\forget.vue' /* webpackChunkName: "pages_entry_forget" */).then(m => m.default || m)
-const _1dc018a5 = () => import('..\\pages\\member\\pay-order.vue' /* webpackChunkName: "pages_member_pay-order" */).then(m => m.default || m)
-const _78ef674e = () => import('..\\pages\\member\\trade-detail.vue' /* webpackChunkName: "pages_member_trade-detail" */).then(m => m.default || m)
-const _3a1da472 = () => import('..\\pages\\member\\trade-edit.vue' /* webpackChunkName: "pages_member_trade-edit" */).then(m => m.default || m)
-const _5a8d04de = () => import('..\\pages\\entry\\login.vue' /* webpackChunkName: "pages_entry_login" */).then(m => m.default || m)
-const _3e6c37f3 = () => import('..\\pages\\category-reference\\_type.vue' /* webpackChunkName: "pages_category-reference__type" */).then(m => m.default || m)
-const _7c609d30 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _48d96fdd = () => import('..\\pages\\myclasses\\index.vue' /* webpackChunkName: "pages_myclasses_index" */).then(m => m.default || m)
+const _7c9a31fd = () => import('..\\pages\\entry.vue' /* webpackChunkName: "pages_entry" */).then(m => m.default || m)
+const _b6ca2f40 = () => import('..\\pages\\entry\\register.vue' /* webpackChunkName: "pages_entry_register" */).then(m => m.default || m)
+const _474c9fe6 = () => import('..\\pages\\entry\\find-pwd.vue' /* webpackChunkName: "pages_entry_find-pwd" */).then(m => m.default || m)
+const _dd800208 = () => import('..\\pages\\entry\\login.vue' /* webpackChunkName: "pages_entry_login" */).then(m => m.default || m)
+const _4afa8e14 = () => import('..\\pages\\profile\\_id.vue' /* webpackChunkName: "pages_profile__id" */).then(m => m.default || m)
+const _6968de93 = () => import('..\\pages\\profile\\_id\\_type.vue' /* webpackChunkName: "pages_profile__id__type" */).then(m => m.default || m)
+const _18e1634c = () => import('..\\pages\\index\\_type.vue' /* webpackChunkName: "pages_index__type" */).then(m => m.default || m)
+const _829c85ae = () => import('..\\pages\\inbox\\_user.vue' /* webpackChunkName: "pages_inbox__user" */).then(m => m.default || m)
+const _d8f7a46c = () => import('..\\pages\\comment-details\\_type.vue' /* webpackChunkName: "pages_comment-details__type" */).then(m => m.default || m)
+const _1ccbc585 = () => import('..\\pages\\myclasses\\_id.vue' /* webpackChunkName: "pages_myclasses__id" */).then(m => m.default || m)
+const _a62454aa = () => import('..\\pages\\posts\\_type.vue' /* webpackChunkName: "pages_posts__type" */).then(m => m.default || m)
+const _bb05b062 = () => import('..\\pages\\index_1.vue' /* webpackChunkName: "pages_index_1" */).then(m => m.default || m)
 
 
 
@@ -77,74 +76,73 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
-			path: "/trade-detail",
-			component: _1185e5b4,
-			name: "trade-detail"
+			path: "/myclasses",
+			component: _48d96fdd,
+			name: "myclasses"
 		},
 		{
-			path: "/query",
-			component: _f3829344,
-			name: "query"
+			path: "/entry",
+			component: _7c9a31fd,
+			name: "entry",
+			children: [
+				{
+					path: "register",
+					component: _b6ca2f40,
+					name: "entry-register"
+				},
+				{
+					path: "find-pwd",
+					component: _474c9fe6,
+					name: "entry-find-pwd"
+				},
+				{
+					path: "login",
+					component: _dd800208,
+					name: "entry-login"
+				}
+			]
 		},
 		{
-			path: "/member/wxbuy",
-			component: _70f666c1,
-			name: "member-wxbuy"
+			path: "/profile/:id?",
+			component: _4afa8e14,
+			name: "profile-id",
+			children: [
+				{
+					path: ":type?",
+					component: _6968de93,
+					name: "profile-id-type"
+				}
+			]
 		},
 		{
-			path: "/member/applicant-edit",
-			component: _7651b82e,
-			name: "member-applicant-edit"
+			path: "/index/:type?",
+			component: _18e1634c,
+			name: "index-type"
 		},
 		{
-			path: "/member/applicant-list",
-			component: _94e20706,
-			name: "member-applicant-list"
+			path: "/inbox/:user?",
+			component: _829c85ae,
+			name: "inbox-user"
 		},
 		{
-			path: "/entry/register",
-			component: _03e734aa,
-			name: "entry-register"
+			path: "/comment-details/:type?",
+			component: _d8f7a46c,
+			name: "comment-details-type"
 		},
 		{
-			path: "/member/trade-list",
-			component: _58adf34a,
-			name: "member-trade-list"
+			path: "/myclasses/:id?",
+			component: _1ccbc585,
+			name: "myclasses-id"
 		},
 		{
-			path: "/entry/forget",
-			component: _6807c016,
-			name: "entry-forget"
+			path: "/posts/:type?",
+			component: _a62454aa,
+			name: "posts-type"
 		},
 		{
-			path: "/member/pay-order",
-			component: _1dc018a5,
-			name: "member-pay-order"
-		},
-		{
-			path: "/member/trade-detail",
-			component: _78ef674e,
-			name: "member-trade-detail"
-		},
-		{
-			path: "/member/trade-edit",
-			component: _3a1da472,
-			name: "member-trade-edit"
-		},
-		{
-			path: "/entry/login",
-			component: _5a8d04de,
-			name: "entry-login"
-		},
-		{
-			path: "/category-reference/:type?",
-			component: _3e6c37f3,
-			name: "category-reference-type"
-		},
-		{
-			path: "/",
-			component: _7c609d30,
-			name: "index"
+			path: "/index:1",
+			component: _bb05b062,
+			name: "index1"
 		}
     ],
     
