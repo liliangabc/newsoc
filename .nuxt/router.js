@@ -3,19 +3,19 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _48d96fdd = () => import('..\\pages\\myclasses\\index.vue' /* webpackChunkName: "pages_myclasses_index" */).then(m => m.default || m)
-const _7c9a31fd = () => import('..\\pages\\entry.vue' /* webpackChunkName: "pages_entry" */).then(m => m.default || m)
-const _b6ca2f40 = () => import('..\\pages\\entry\\register.vue' /* webpackChunkName: "pages_entry_register" */).then(m => m.default || m)
-const _474c9fe6 = () => import('..\\pages\\entry\\find-pwd.vue' /* webpackChunkName: "pages_entry_find-pwd" */).then(m => m.default || m)
-const _dd800208 = () => import('..\\pages\\entry\\login.vue' /* webpackChunkName: "pages_entry_login" */).then(m => m.default || m)
-const _4afa8e14 = () => import('..\\pages\\profile\\_id.vue' /* webpackChunkName: "pages_profile__id" */).then(m => m.default || m)
-const _6968de93 = () => import('..\\pages\\profile\\_id\\_type.vue' /* webpackChunkName: "pages_profile__id__type" */).then(m => m.default || m)
-const _18e1634c = () => import('..\\pages\\index\\_type.vue' /* webpackChunkName: "pages_index__type" */).then(m => m.default || m)
-const _829c85ae = () => import('..\\pages\\inbox\\_user.vue' /* webpackChunkName: "pages_inbox__user" */).then(m => m.default || m)
-const _d8f7a46c = () => import('..\\pages\\comment-details\\_type.vue' /* webpackChunkName: "pages_comment-details__type" */).then(m => m.default || m)
-const _1ccbc585 = () => import('..\\pages\\myclasses\\_id.vue' /* webpackChunkName: "pages_myclasses__id" */).then(m => m.default || m)
-const _a62454aa = () => import('..\\pages\\posts\\_type.vue' /* webpackChunkName: "pages_posts__type" */).then(m => m.default || m)
-const _bb05b062 = () => import('..\\pages\\index_1.vue' /* webpackChunkName: "pages_index_1" */).then(m => m.default || m)
+const _2d4b55d4 = () => import('..\\pages\\myclasses\\index.vue' /* webpackChunkName: "pages_myclasses_index" */).then(m => m.default || m)
+const _2f945664 = () => import('..\\pages\\entry.vue' /* webpackChunkName: "pages_entry" */).then(m => m.default || m)
+const _783bf807 = () => import('..\\pages\\entry\\register.vue' /* webpackChunkName: "pages_entry_register" */).then(m => m.default || m)
+const _1aedaf8d = () => import('..\\pages\\entry\\find-pwd.vue' /* webpackChunkName: "pages_entry_find-pwd" */).then(m => m.default || m)
+const _32232e96 = () => import('..\\pages\\entry\\login.vue' /* webpackChunkName: "pages_entry_login" */).then(m => m.default || m)
+const _303122af = () => import('..\\pages\\profile\\_id.vue' /* webpackChunkName: "pages_profile__id" */).then(m => m.default || m)
+const _611bc2ba = () => import('..\\pages\\profile\\_id\\_type.vue' /* webpackChunkName: "pages_profile__id__type" */).then(m => m.default || m)
+const _6e8fcd05 = () => import('..\\pages\\index\\_type.vue' /* webpackChunkName: "pages_index__type" */).then(m => m.default || m)
+const _146026e2 = () => import('..\\pages\\inbox\\_user.vue' /* webpackChunkName: "pages_inbox__user" */).then(m => m.default || m)
+const _e36ef77a = () => import('..\\pages\\comment-details\\_type.vue' /* webpackChunkName: "pages_comment-details__type" */).then(m => m.default || m)
+const _7ef2b604 = () => import('..\\pages\\myclasses\\_id.vue' /* webpackChunkName: "pages_myclasses__id" */).then(m => m.default || m)
+const _029c3f64 = () => import('..\\pages\\posts\\_type.vue' /* webpackChunkName: "pages_posts__type" */).then(m => m.default || m)
+const _7f7fce76 = () => import('..\\pages\\index_1.vue' /* webpackChunkName: "pages_index_1" */).then(m => m.default || m)
 
 
 
@@ -77,71 +77,71 @@ export function createRouter () {
     routes: [
 		{
 			path: "/myclasses",
-			component: _48d96fdd,
+			component: _2d4b55d4,
 			name: "myclasses"
 		},
 		{
 			path: "/entry",
-			component: _7c9a31fd,
+			component: _2f945664,
 			name: "entry",
 			children: [
 				{
 					path: "register",
-					component: _b6ca2f40,
+					component: _783bf807,
 					name: "entry-register"
 				},
 				{
 					path: "find-pwd",
-					component: _474c9fe6,
+					component: _1aedaf8d,
 					name: "entry-find-pwd"
 				},
 				{
 					path: "login",
-					component: _dd800208,
+					component: _32232e96,
 					name: "entry-login"
 				}
 			]
 		},
 		{
 			path: "/profile/:id?",
-			component: _4afa8e14,
+			component: _303122af,
 			name: "profile-id",
 			children: [
 				{
 					path: ":type?",
-					component: _6968de93,
+					component: _611bc2ba,
 					name: "profile-id-type"
 				}
 			]
 		},
 		{
 			path: "/index/:type?",
-			component: _18e1634c,
+			component: _6e8fcd05,
 			name: "index-type"
 		},
 		{
 			path: "/inbox/:user?",
-			component: _829c85ae,
+			component: _146026e2,
 			name: "inbox-user"
 		},
 		{
 			path: "/comment-details/:type?",
-			component: _d8f7a46c,
+			component: _e36ef77a,
 			name: "comment-details-type"
 		},
 		{
 			path: "/myclasses/:id?",
-			component: _1ccbc585,
+			component: _7ef2b604,
 			name: "myclasses-id"
 		},
 		{
 			path: "/posts/:type?",
-			component: _a62454aa,
+			component: _029c3f64,
 			name: "posts-type"
 		},
 		{
 			path: "/index:1",
-			component: _bb05b062,
+			component: _7f7fce76,
 			name: "index1"
 		}
     ],

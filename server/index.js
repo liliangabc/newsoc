@@ -7,7 +7,7 @@ import { Nuxt, Builder } from 'nuxt'
 import apiRouter from './api-router'
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 // const RedisStore = connectRedis(session)
 
 app.use(compression())

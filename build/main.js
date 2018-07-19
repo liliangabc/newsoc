@@ -83,43 +83,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_compression___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_compression__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_express_session__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_express_session___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_express_session__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_connect_redis__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_connect_redis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_connect_redis__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_nuxt__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_nuxt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_nuxt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_router__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_nuxt__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_nuxt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_nuxt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_router__ = __webpack_require__(5);
 
 
 
-
+// import connectRedis from 'connect-redis'
 
 
 
 
 var app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
-var port = process.env.PORT || 5000;
-var RedisStore = __WEBPACK_IMPORTED_MODULE_3_connect_redis___default()(__WEBPACK_IMPORTED_MODULE_2_express_session___default.a);
+var port = process.env.PORT || 3000;
+// const RedisStore = connectRedis(session)
 
 app.use(__WEBPACK_IMPORTED_MODULE_1_compression___default()());
 app.use(__WEBPACK_IMPORTED_MODULE_2_express_session___default()({
-  store: new RedisStore({
-    host: '47.104.27.50',
-    port: 3678,
-    pass: 'Redis!321.'
-  }),
+  // store: new RedisStore({
+  //   host: '47.104.27.50',
+  //   port: 3678,
+  //   pass: 'Redis!321.'
+  // }),
   secret: 'hello world 2018',
   resave: true,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 }
 }));
 
-app.use('/api', __WEBPACK_IMPORTED_MODULE_5__api_router__["a" /* default */]);
+app.use('/api', __WEBPACK_IMPORTED_MODULE_4__api_router__["a" /* default */]);
 
-var config = __webpack_require__(12);
+var config = __webpack_require__(11);
 config.dev = !("production" === 'production');
-var nuxt = new __WEBPACK_IMPORTED_MODULE_4_nuxt__["Nuxt"](config);
+var nuxt = new __WEBPACK_IMPORTED_MODULE_3_nuxt__["Nuxt"](config);
 if (config.dev) {
-  var builder = new __WEBPACK_IMPORTED_MODULE_4_nuxt__["Builder"](nuxt);
+  var builder = new __WEBPACK_IMPORTED_MODULE_3_nuxt__["Builder"](nuxt);
   builder.build();
 }
 
@@ -154,30 +152,24 @@ module.exports = require("express-session");
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("connect-redis");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
 module.exports = require("nuxt");
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_http_proxy_middleware__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_http_proxy_middleware__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_http_proxy_middleware___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_http_proxy_middleware__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_body_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_qs__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_qs__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_qs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_qs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(10);
 /**
  * API路由处理
  */
@@ -253,31 +245,31 @@ router.use('/**', __WEBPACK_IMPORTED_MODULE_2_http_proxy_middleware___default()(
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("http-proxy-middleware");
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("qs");
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -289,7 +281,7 @@ module.exports = require("qs");
 var APIURL = process.env.APIURL || 'http://47.104.27.50:88/circcus/api/student';
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = {
