@@ -9,7 +9,7 @@ module.exports = {
         "NODE_ENV": "production",
         // "HOST": "www.circcus.com",
         // "HOST": "192.168.0.200",
-        "HOST": "47.104.27.50",
+        "HOST": "0.0.0.0",
         "APIURL": "http://i.circcus.com/api/student"
       }
     }
